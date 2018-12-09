@@ -1,60 +1,96 @@
 <div *ngIf="user">
-    <h2> <span (click)="goBack()">&#8592;</span> Edit User</h2>
-    <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
-        <label>
-            Name:
-            <input type="text" formControlName="name">
-        </label>
-        <label>
-            User Name:
-            <input type="text" formControlName="username">
-        </label>
-        <label>
-            Email:
-            <input type="text" formControlName="email">
-        </label>
-        <label>
-            Phone:
-            <input type="text" formControlName="phone">
-        </label>
-        <label>
-            Website:
-            <input type="text" formControlName="website">
-        </label>
-        <div formGroupName="address">
-            <h3>Address</h3>
-            <label>
-                Street:
-                <input type="text" formControlName="street">
-            </label>
-            <label>
-                City:
-                <input type="text" formControlName="city">
-            </label>
-            <label>
-                Suite:
-                <input type="text" formControlName="suite">
-            </label>
-            <label>
-                Zip Code:
-                <input type="text" formControlName="zipcode">
-            </label>
+    <form [formGroup]="editForm" (ngSubmit)="onSubmit()" clrForm>
+        <div class="edit-header">
+            <h3>Edit User</h3>
+            <a routerLink="/list" class="stack-action btn btn-sm btn-link">go back</a>
+        </div>
+        <div class="clr-row">
+            <div class="clr-col-sm-12 clr-col-md-6">
+                <clr-input-container>
+                    <label class="clr-col-xs-12 clr-col-md-4">Name</label>
+                    <input class="clr-col-xs-12 clr-col-md-8" type="text" formControlName="name" clrInput>
+                </clr-input-container>
+            </div>
+            <div class="clr-col-sm-12 clr-col-md-6">
+                <clr-input-container>
+                    <label class="clr-col-xs-12 clr-col-md-4">User Name</label>
+                    <input class="clr-col-xs-12 clr-col-md-8" type="text" formControlName="username" clrInput>
+                </clr-input-container>
+            </div>
+            <div class="clr-col-sm-12 clr-col-md-6">
+                <clr-input-container>
+                    <label class="clr-col-xs-12 clr-col-md-4">Email</label>
+                    <input class="clr-col-xs-12 clr-col-md-8" type="text" formControlName="email" clrInput>
+                </clr-input-container>
+            </div>
+            <div class="clr-col-sm-12 clr-col-md-6">
+                <clr-input-container>
+                    <label class="clr-col-xs-12 clr-col-md-4">Phone</label>
+                    <input class="clr-col-xs-12 clr-col-md-8" type="text" formControlName="phone" clrInput>
+                </clr-input-container>
+            </div>
+            <div class="clr-col-sm-12 clr-col-md-6">
+                <clr-input-container>
+                    <label class="clr-col-xs-12 clr-col-md-4">Website</label>
+                    <input class="clr-col-xs-12 clr-col-md-8" type="text" formControlName="website" clrInput>
+                </clr-input-container>
+            </div>
         </div>
         <div formGroupName="company">
             <h3>Company</h3>
-            <label>
-                Name:
-                <input type="text" formControlName="name">
-            </label>
-            <label>
-                Catch Phrase:
-                <input type="text" formControlName="catchPhrase">
-            </label>
-            <label>
-                BS:
-                <input type="text" formControlName="bs">
-            </label>
+            <div class="clr-row">
+                <div class="clr-col-sm-12 clr-col-md-6">
+                    <clr-input-container>
+                        <label class="clr-col-xs-12 clr-col-md-4">Name</label>
+                        <input class="clr-col-xs-12 clr-col-md-8" type="text" formControlName="name" clrInput>
+                    </clr-input-container>
+                </div>
+                <div class="clr-col-sm-12 clr-col-md-6">
+                    <clr-input-container>
+                        <label class="clr-col-xs-12 clr-col-md-4">Catch Phrase</label>
+                        <input class="clr-col-xs-12 clr-col-md-8" type="text" formControlName="catchPhrase" clrInput>
+                    </clr-input-container>
+                </div>
+                <div class="clr-col-sm-12 clr-col-md-6">
+                    <clr-input-container>
+                        <label class="clr-col-xs-12 clr-col-md-4">BS</label>
+                        <input class="clr-col-xs-12 clr-col-md-8" type="text" formControlName="bs" clrInput>
+                    </clr-input-container>
+                </div>
+            </div>
         </div>
-        <button type="submit" [disabled]="!editForm.valid">Submit</button>
+        <div formGroupName="address">
+            <h3>Address</h3>
+            <div class="clr-row">
+                <div class="clr-col-sm-12 clr-col-md-6">
+                    <clr-input-container>
+                        <label class="clr-col-xs-12 clr-col-md-4">Street</label>
+                        <input class="clr-col-xs-12 clr-col-md-8" type="text" formControlName="street" clrInput>
+                    </clr-input-container>
+                </div>
+                <div class="clr-col-sm-12 clr-col-md-6">
+                    <clr-input-container>
+                        <label class="clr-col-xs-12 clr-col-md-4">City</label>
+                        <input class="clr-col-xs-12 clr-col-md-8" type="text" formControlName="city" clrInput>
+                    </clr-input-container>
+                </div>
+                <div class="clr-col-sm-12 clr-col-md-6">
+                    <clr-input-container>
+                        <label class="clr-col-xs-12 clr-col-md-4">Suite</label>
+                        <input class="clr-col-xs-12 clr-col-md-8" type="text" formControlName="suite" clrInput>
+                    </clr-input-container>
+                </div>
+                <div class="clr-col-sm-12 clr-col-md-6">
+                    <clr-input-container>
+                        <label class="clr-col-xs-12 clr-col-md-4">Zip Code</label>
+                        <input class="clr-col-xs-12 clr-col-md-8" type="text" formControlName="zipcode" clrInput>
+                    </clr-input-container>
+                </div>
+            </div>
+        </div>
+        <button class="btn btn-primary" type="submit" [disabled]="!editForm.valid">Submit</button>
     </form>
+</div>
+<div class="spinner-wrapper" *ngIf="!user">
+    <div class="spinner app-spinner"></div>
 </div>

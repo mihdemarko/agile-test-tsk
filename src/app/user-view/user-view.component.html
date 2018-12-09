@@ -1,17 +1,73 @@
 <div *ngIf="user">
-    <h2> <span (click)="goBack()">&#8592;</span> User Info</h2>
-  <app-view-element [title]="'name'" [value]="user.name"></app-view-element>
-  <app-view-element [title]="'username'" [value]="user.username"></app-view-element>
-  <app-view-element [title]="'email'" [value]="user.email"></app-view-element>
-  <app-view-element [title]="'phone'" [value]="user.phone"></app-view-element>
-  <app-view-element [title]="'website'" [value]="user.website"></app-view-element>
-  <h2>Address</h2>
-  <app-view-element [title]="'street'" [value]="user.address.street"></app-view-element>
-  <app-view-element [title]="'suite'" [value]="user.address.suite"></app-view-element>
-  <app-view-element [title]="'city'" [value]="user.address.city"></app-view-element>
-  <app-view-element [title]="'zipcode'" [value]="user.address.zipcode"></app-view-element>
-  <h2>Company Info</h2>
-  <app-view-element [title]="'name'" [value]="user.company.name"></app-view-element>
-  <app-view-element [title]="'Catch Phrase'" [value]="user.company.catchPhrase"></app-view-element>
-  <app-view-element [title]="'bs'" [value]="user.company.bs"></app-view-element>
+    <clr-stack-view>
+        <clr-stack-header>
+          User Info
+          <a routerLink="/list" class="stack-action btn btn-sm btn-link">go back</a>
+          <a routerLink="/edit/{{user.id}}" class="stack-action btn btn-sm btn-link">edit</a>
+        </clr-stack-header>
+
+        <clr-stack-block>
+            <clr-stack-label>Name</clr-stack-label>
+            <clr-stack-content>{{user.name}}</clr-stack-content>
+        </clr-stack-block>
+        <clr-stack-block>
+            <clr-stack-label>Username</clr-stack-label>
+            <clr-stack-content>{{user.username}}</clr-stack-content>
+        </clr-stack-block>
+        <clr-stack-block>
+            <clr-stack-label>Email</clr-stack-label>
+            <clr-stack-content>{{user.email}}</clr-stack-content>
+        </clr-stack-block>
+        <clr-stack-block>
+            <clr-stack-label>Phone</clr-stack-label>
+            <clr-stack-content>{{user.phone}}</clr-stack-content>
+        </clr-stack-block>
+        <clr-stack-block>
+            <clr-stack-label>Website</clr-stack-label>
+            <clr-stack-content>{{user.website}}</clr-stack-content>
+        </clr-stack-block>
+    
+        <clr-stack-block [clrSbExpanded]="true">
+            <clr-stack-label>Company</clr-stack-label>
+            <clr-stack-content></clr-stack-content>
+            <clr-stack-block>
+                <clr-stack-label>Name</clr-stack-label>
+                <clr-stack-content>{{user.company.name}}</clr-stack-content>
+            </clr-stack-block>
+            <clr-stack-block>
+                <clr-stack-label>Catch Phrase</clr-stack-label>
+                <clr-stack-content>{{user.company.catchPhrase}}</clr-stack-content>
+            </clr-stack-block>
+            <clr-stack-block>
+                <clr-stack-label>BS</clr-stack-label>
+                <clr-stack-content>{{user.company.bs}}</clr-stack-content>
+            </clr-stack-block>
+        </clr-stack-block>
+    
+        <clr-stack-block [clrSbExpanded]="true">
+            <clr-stack-label>Address</clr-stack-label>
+            <clr-stack-content></clr-stack-content>
+            <clr-stack-block>
+                <clr-stack-label>City</clr-stack-label>
+                <clr-stack-content>{{user.address.city}}</clr-stack-content>
+            </clr-stack-block>
+            <clr-stack-block>
+                <clr-stack-label>Street</clr-stack-label>
+                <clr-stack-content>{{user.address.street}}</clr-stack-content>
+            </clr-stack-block>
+            <clr-stack-block>
+                <clr-stack-label>Suite</clr-stack-label>
+                <clr-stack-content>{{user.address.suite}}</clr-stack-content>
+            </clr-stack-block>
+            <clr-stack-block>
+                <clr-stack-label>Zip Code</clr-stack-label>
+                <clr-stack-content>{{user.address.zipcode}}</clr-stack-content>
+            </clr-stack-block>
+        </clr-stack-block>
+    </clr-stack-view>
 </div>
+<div class="spinner-wrapper" *ngIf="!user">
+    <div class="spinner app-spinner"></div>
+</div>
+
+

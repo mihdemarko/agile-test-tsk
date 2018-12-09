@@ -7,22 +7,24 @@ import { UsersListComponent } from './users-list/users-list.component';
 import { HttpClientModule }    from '@angular/common/http';
 import { UserViewComponent } from './user-view/user-view.component';
 import { UserEditComponent } from './user-edit/user-edit.component';
-import { ViewElementComponent } from './view-element/view-element.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ClarityModule } from '@clr/angular';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
     AppComponent,
     UsersListComponent,
     UserViewComponent,
-    UserEditComponent,
-    ViewElementComponent
+    UserEditComponent
   ],
   imports: [
     HttpClientModule,
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ClarityModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
