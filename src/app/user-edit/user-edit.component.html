@@ -1,0 +1,60 @@
+<div *ngIf="user">
+    <h2> <span (click)="goBack()">&#8592;</span> Edit User</h2>
+    <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+        <label>
+            Name:
+            <input type="text" formControlName="name">
+        </label>
+        <label>
+            User Name:
+            <input type="text" formControlName="username">
+        </label>
+        <label>
+            Email:
+            <input type="text" formControlName="email">
+        </label>
+        <label>
+            Phone:
+            <input type="text" formControlName="phone">
+        </label>
+        <label>
+            Website:
+            <input type="text" formControlName="website">
+        </label>
+        <div formGroupName="address">
+            <h3>Address</h3>
+            <label>
+                Street:
+                <input type="text" formControlName="street">
+            </label>
+            <label>
+                City:
+                <input type="text" formControlName="city">
+            </label>
+            <label>
+                Suite:
+                <input type="text" formControlName="suite">
+            </label>
+            <label>
+                Zip Code:
+                <input type="text" formControlName="zipcode">
+            </label>
+        </div>
+        <div formGroupName="company">
+            <h3>Company</h3>
+            <label>
+                Name:
+                <input type="text" formControlName="name">
+            </label>
+            <label>
+                Catch Phrase:
+                <input type="text" formControlName="catchPhrase">
+            </label>
+            <label>
+                BS:
+                <input type="text" formControlName="bs">
+            </label>
+        </div>
+        <button type="submit" [disabled]="!editForm.valid">Submit</button>
+    </form>
+</div>

@@ -1,0 +1,17 @@
+<div *ngIf="user">
+    <h2> <span (click)="goBack()">&#8592;</span> User Info</h2>
+  <app-view-element [title]="'name'" [value]="user.name"></app-view-element>
+  <app-view-element [title]="'username'" [value]="user.username"></app-view-element>
+  <app-view-element [title]="'email'" [value]="user.email"></app-view-element>
+  <app-view-element [title]="'phone'" [value]="user.phone"></app-view-element>
+  <app-view-element [title]="'website'" [value]="user.website"></app-view-element>
+  <h2>Address</h2>
+  <app-view-element [title]="'street'" [value]="user.address.street"></app-view-element>
+  <app-view-element [title]="'suite'" [value]="user.address.suite"></app-view-element>
+  <app-view-element [title]="'city'" [value]="user.address.city"></app-view-element>
+  <app-view-element [title]="'zipcode'" [value]="user.address.zipcode"></app-view-element>
+  <h2>Company Info</h2>
+  <app-view-element [title]="'name'" [value]="user.company.name"></app-view-element>
+  <app-view-element [title]="'Catch Phrase'" [value]="user.company.catchPhrase"></app-view-element>
+  <app-view-element [title]="'bs'" [value]="user.company.bs"></app-view-element>
+</div>
