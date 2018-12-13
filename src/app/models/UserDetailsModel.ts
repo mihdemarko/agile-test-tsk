@@ -1,4 +1,4 @@
-export class UserDetailsModel {
+export interface UserDetailsModel {
     id: number;
     name: string;
     username: string;
@@ -8,18 +8,18 @@ export class UserDetailsModel {
     website: string;
     company: Company
 }
-class Address {
+interface Address {
   street: string;
   suite: string;
   city: string;
   zipcode: string;
   geo: Geo
 }
-class Geo {
+interface Geo {
   lat: number;
   lng: number
 }
-class Company {
+interface Company {
   name: string;
   catchPhrase: string;
   bs: string

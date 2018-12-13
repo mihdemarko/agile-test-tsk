@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { DataProviderService } from '../data-provider.service';
 import { UserDetailsModel } from '../models/UserDetailsModel';
 import { FormGroup, FormControl } from '@angular/forms';
+import { Subscription } from 'rxjs';
 import * as _ from "lodash";
 
 @Component({
@@ -11,8 +12,9 @@ import * as _ from "lodash";
   templateUrl: './user-edit.component.html',
   styleUrls: ['./user-edit.component.css']
 })
-export class UserEditComponent implements OnInit {
+export class UserEditComponent implements OnInit, OnDestroy {
   user: UserDetailsModel;
+  subscriptions: Subscription[] = [];
   editForm = new FormGroup({
     name: new FormControl(''),
     username: new FormControl(''),
@@ -43,11 +45,11 @@ export class UserEditComponent implements OnInit {
  
   getUser(): void {
     const id = +this.route.snapshot.paramMap.get('id');
-    this.dataProviderService.getUser(id)
+    this.subscriptions.push(this.dataProviderService.getUser(id)
       .subscribe(user => {
         this.user = user;
         this.editForm.patchValue(user);
-      });
+      }));
   }
  
   goBack(): void {
@@ -55,8 +57,12 @@ export class UserEditComponent implements OnInit {
   }
 
   onSubmit() {
-    this.dataProviderService.updateUser( _.assign(this.user,this.editForm.value))
-      .subscribe(()=>this.goBack())
+    this.subscriptions.push(this.dataProviderService.updateUser( _.assign(this.user,this.editForm.value))
+      .subscribe(()=>this.goBack()))
+  }
+
+  ngOnDestroy() {
+    this.subscriptions.forEach((s: Subscription) => {s.unsubscribe()})
   }
 
 }
